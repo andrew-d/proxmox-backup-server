@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# remove old lock files
+rm -f /etc/proxmox-backup/.*.lck /etc/proxmox-backup/*.lock
+
+exec /usr/lib/*/proxmox-backup/proxmox-backup-api

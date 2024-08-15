@@ -1,0 +1,4 @@
+#!/bin/bash
+
+exec s6-setuidgid backup \
+    /usr/lib/*/proxmox-backup/proxmox-backup-proxy

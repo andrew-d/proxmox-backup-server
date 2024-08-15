@@ -1,0 +1,14 @@
+#!/command/execlineb
+
+# TODO: this is probably not the nicest way to do this but execline is
+# confusing AF and I timed out
+foreground {
+        if { test -f /etc/passwords.d/root }
+
+        foreground {
+                sh -c "echo \"root:$(cat /etc/passwords.d/root)\" | chpasswd"
+        }
+        echo "reset password of root user"
+}
+
+exit 0

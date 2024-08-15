@@ -1,0 +1,3 @@
+/etc/proxmox-backup false backup 0600 0700
+/var/lib/proxmox-backup false backup 0600 0700
+/var/log/proxmox-backup false backup 0600 0700
