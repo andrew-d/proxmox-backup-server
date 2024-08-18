@@ -19,7 +19,7 @@ RUN wget -O /etc/apt/keyrings/proxmox-release-bookworm.gpg 'https://enterprise.p
       > /etc/apt/sources.list.d/pbs.list && \
     apt-get update && \
     apt install -y --no-install-recommends proxmox-backup-server zfsutils-linux && \
-    test -f /etc/apt/sources.list.d/pbs-enterprise.list && sed -i 's/^/#/' /etc/apt/sources.list.d/pbs-enterprise.list && \
+    { test -f /etc/apt/sources.list.d/pbs-enterprise.list && sed -i 's/^/#/' /etc/apt/sources.list.d/pbs-enterprise.list || true ; } && \
     rm -rf /var/lib/apt/lists/*
 
 # Install s6

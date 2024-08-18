@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This is a cronjob-alike that runs daily; sleep a random number of hours
+# between 19 and 24 (to match the RandomizedDelaySec specification in the
+# systemd unit file) and then exec the underlying program which will exit.
+#
+# s6-supervise will restart this after it exits.
+#
+# 18,000 is 5 hours * 60 * 60 = 18,000 seconds
+# 68,400 is 19 hours
+JITTER=$((RANDOM % 18000))
+WAIT=$((68400 + JITTER))
+
+echo "proxmox-daily-update: sleeping for ${WAIT}s before running proxmox-daily-update"
+sleep $((68400 + JITTER))
+echo "proxmox-daily-update: running proxmox-daily-update"
+
+exec /usr/lib/*/proxmox-backup/proxmox-daily-update

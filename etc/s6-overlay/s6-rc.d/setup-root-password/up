@@ -8,7 +8,7 @@ foreground {
         foreground {
                 sh -c "echo \"root:$(cat /etc/passwords.d/root)\" | chpasswd"
         }
-        echo "reset password of root user"
+        echo "setup-root-password: reset password of root user"
 }
 
 exit 0
